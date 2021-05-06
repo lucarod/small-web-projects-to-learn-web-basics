@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary To Decimal</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>
+            Binary/Decimal Converter
+        </h1>
+        <p>Type any value up to 8 bits to convert it</p>
+    </header>
+    <main>
+        <div class="cards">
+            <h2 class="title">Binary to Decimal</h2>
+
+            <form action="" onsubmit="Form.submitBinary(event)">
+                <p><label for="number">Enter the desired number:</label></p>
+                <input 
+                    type="text" 
+                    id="binary" 
+                    placeholder="00000000"
+                    maxlength="8"
+                />
+                <p>
+                    <button>Convert</button>
+                </p>
+                
+            </form>
+        
+            <p class="result">
+                <span>Result:</span>
+                <span id="binary-result"></span>
+            </p>
+        </div>
+        <div class="cards">
+            <h2 class="title">Decimal to Binary</h2>
+
+            <form action="" onsubmit="Form.submitDecimal(event)">
+                <p><label for="number">Enter the desired number:</label></p>
+                <input 
+                    type="number" 
+                    id="decimal" 
+                    placeholder="0"
+                    min="0"
+                    max="255"
+                />
+                <p>
+                    <button>Convert</button>
+                </p>
+                
+            </form>
+        
+            <p class="result">
+                <span>Result:</span>
+                <span id="decimal-result"></span>
+            </p>
+        </div>
+        
+    </main>
+
+    <footer>
+        <p>Made by Luca Rodrigues</p>
+        <a href="https://github.com/lucarod">GitHub</a>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
