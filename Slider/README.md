@@ -2,4 +2,4 @@
 
 Simple Carousel Slider with manual and auto navigation.
 
-![Ver Imagem](https://i.imgur.com/NXGwZlKs.gif)
+![Ver Imagem](https://i.imgur.com/NXGwZlKb.gif)
