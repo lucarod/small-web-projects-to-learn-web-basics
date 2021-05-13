@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #341e8b;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+}
+
+.log-display {
+    border: none;
+    outline: none;
+
+    padding: 8px;
+
+    text-align: end;
+
+    font-size: 14px;
+    color: rgb(90, 90, 90);
+}
+
+.number-display {
+    border: none;
+    outline: none;
+
+    padding: 0 8px 8px 8px;
+
+    font-size: 32px;
+    font-weight: bold;
+
+    text-align: end;
+}
+
+.numpad {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+.numpad button {
+    border: none;
+
+    background-color: #8B341E;
+    color: white;
+    font-size: 18px;
+}
+
+.numpad button:hover {
+    background-color: #c54424
+}
+
+.numpad button:active {
+    background-color: #ff653e
+}
+
+.upper-side-operations {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3px;
+    margin-top: 3px;
+    height: 50px;
+}
+
+.upper-side-operations button {
+    font-weight: thin;
+}
+
+.down-pad {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin-top: 3px;
+}
+
+.numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50px 50px 50px 50px;
+    gap: 3px;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+.right-side-operations {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 3px;
+
+    margin-left: 3px;
+}
+
+.right-side-operations button {
+    font-size: 26px;
+    font-weight: thin;
+}
+
+.plus {
+    grid-row: span 2;
+}
