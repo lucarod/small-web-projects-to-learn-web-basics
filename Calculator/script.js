@@ -1,18 +1,18 @@
 /* Bugs para corrigir: 
 
-    Segunda soma resulta em cálculo automático
-
-    Cálculos após o primeiro apresentam resultados estranhos
-
-    C e AC não funcionam corretamente
 */
+
+const numberDisplay = document.querySelector('.number-display');
+const logDisplay = document.querySelector('.log-display');
 
 let firstNumber = null;
 let secondNumber = null;
 let selectedOperation = null;
 let lastResult = null;
+let logNumber = null
 let operationExecuted = false;
 let operationSelected = false;
+let numberSelected = false;
 
 const Display = {
     writeDigit(digit) {
@@ -25,42 +25,45 @@ const Display = {
             operationSelected = false;
         }
 
-        const display = document.querySelector('.number-display');
-        if (display.value.length < 8) {
-            display.value += digit;
+        if (numberDisplay.value.length < 8) {
+            numberDisplay.value += digit;
         }
+
+        numberSelected = true;
     },
 
     writeResult(result) {
-        const display = document.querySelector('.number-display');
-        display.value = result;
+        numberDisplay.value = result;
+    },
+
+    writeError() {
+        numberDisplay.value = "ERR";
     },
 
     clear() {
-        const display = document.querySelector('.number-display');
-        display.value = "";
+        numberDisplay.value = "";
     },
 
     getNumber() {
-        const display = document.querySelector('.number-display');
-        return display.value;
+        return numberDisplay.value;
     }
 }
 
 const Log = {
     followResult(number, operation){
-        const display = document.querySelector('.log-display');
-        display.value = `${number} ${operation}`;
+        logDisplay.value = `${number} ${operation}`;
     },
 
     finalResult(firstNumber, secondNumber) {
-        const display = document.querySelector('.log-display');
-        display.value = `${firstNumber} + ${secondNumber} =`;
+        logDisplay.value = `${firstNumber} ${selectedOperation} ${secondNumber} =`;
+    },
+
+    singleResult(firstNumber) {
+        logDisplay.value = `${firstNumber} =`;
     },
 
     clear() {
-        const display = document.querySelector('.log-display');
-        display.value = "";
+        logDisplay.value = "";
     }
 }
 
@@ -75,43 +78,54 @@ const Operations = {
         return a * b;
     },
     division(a, b) {
-        return a / b;
+        if(b === 0){
+            return "ERR"
+        } else {
+            return a / b;
+        }
     }
 }
 
 function selectOperation (operation) {
+
     if (operationSelected != true) {
         if(firstNumber == null) {
             firstNumber = Number(Display.getNumber());
-            selectedOperation = operation;
-            Log.followResult(firstNumber, selectedOperation);
+            logNumber = firstNumber;
         } else {
-            executeOperation('selectOperation')
-            selectedOperation = operation;
-            Log.followResult(lastResult, selectedOperation);
+            if(operationExecuted != true && numberSelected == true) {
+                executeOperation('selectOperation')
+            }
+            logNumber = lastResult;
+            operationExecuted = false;
         }
-        operationSelected = true;
-        operationExecuted = false;
     }
+
+    selectedOperation = operation;
+    Log.followResult(logNumber, selectedOperation);
+    operationSelected = true;
+    numberSelected = false;
 }
 
 function equalsTo() {
     if (firstNumber != null) {
         executeOperation('equalsTo')
+    } else {
+        logNumber = Number(Display.getNumber());
+        Log.singleResult(logNumber);
     }
 }
 
 function executeOperation(caller) {
     let result, a, b;
 
-    if(lastResult == null) {
+    a = lastResult == null ? firstNumber : lastResult;
+
+    if (operationExecuted == false){
         secondNumber = Number(Display.getNumber());
-        a = firstNumber;
-        b = secondNumber;
-    } else {
-        a = lastResult;
-        b = secondNumber;
     }
+
+    b = secondNumber;
 
     result = getResult(a, b);
 
@@ -119,13 +133,14 @@ function executeOperation(caller) {
         Log.finalResult(a, b);
     }
 
-    Display.writeResult(result);
+    if (checkSize(result)) {
+        Display.writeResult(result);
+    } else Display.writeError();
 
     lastResult = result;
 
-    console.log(lastResult);
-
     operationExecuted = true;
+    numberSelected = false;
 }
 
 function getResult(a ,b) {
@@ -151,11 +166,24 @@ function getResult(a ,b) {
     return result;   
 }
 
+function checkSize(result) {
+    return String(result).length <= 8
+}
+
+function inputClear() {
+    if (operationExecuted == true) {
+        clearAll();
+    } else {
+        Display.clear();
+    }
+}
+
 function clearAll() {
     firstNumber = null;
     secondNumber = null;
     selectedOperation = null;
     lastResult = null;
+    logNumber = null
     operationExecuted = false;
 
     Display.clear();
