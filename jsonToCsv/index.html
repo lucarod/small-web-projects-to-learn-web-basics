@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON To CSV Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>JSON To CSV Converter</p>
+    </header>
+    <main>
+        <div class="text-field" id="input-field">
+            <label for="jsonInput">Paste your JSON text here:</label>
+            <textarea name="jsonInput" id="jsonInput" cols="50" rows="15" wrap="off"></textarea>
+            <button onclick="tryConvert(jsonInput.value)">Convert</button>
+        </div>
+        <div class="text-field" id="result-field">
+            <label for="jsonInput">Result:</label>
+            <textarea name="csvOutput" id="csvOutput" cols="50" rows="15" wrap="off"></textarea>
+            <div class="result-buttons">
+                <button>Copy</button>
+                <button>Download</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Made by Luca Rodrigues</p>
+        <a href="https://github.com/lucarod">GitHub</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
