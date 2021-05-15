@@ -1,25 +1,31 @@
+const csvOutput = document.querySelector('#csvOutput');
+
 function tryConvert(inputText) {
-    if(!checkJSON(inputText)) {
+    content = inputText.trim();
+    if(!checkJSON(content)) {
         alert("Erro");
     } else{
-        convertJSON(inputText);
+        convertJSON(content);
     }
 }
 
-function checkJSON(inputText) {
+function checkJSON(content) {
     try {
-        JSON.parse(inputText);
+        JSON.parse(content);
         return true;
     } catch (error) {
         return false;
     }
 }
 
-function convertJSON(inputText) {
-    const csvOutput = document.querySelector('#csvOutput');
-    const parsedJSON = JSON.parse(inputText);
-    const keysArray = Object.keys(parsedJSON);
-    const valuesArray = Object.values(parsedJSON);
+function convertJSON(content) {
+    const parsedJSON = JSON.parse(content);
+
+    const jsonArray = Array.isArray(parsedJSON) ?  parsedJSON : [parsedJSON];
+
+    const header = jsonArray[0];
+    
+    const keysArray = Object.keys(header);
 
     let csvValue = "";
 
@@ -31,10 +37,18 @@ function convertJSON(inputText) {
 
     csvValue += "\n"
 
-    valuesArray.forEach((value) => {
-        if (valuesArray.indexOf(value) === valuesArray.length - 1) {
-            csvValue += `${value}`
-        } else csvValue += `${value}, `
+    jsonArray.forEach((object) => {
+        const valuesArray = Object.values(object);
+
+        valuesArray.forEach((value) => {
+            if(valuesArray.indexOf(value) <= keysArray.length - 1){
+                if (valuesArray.indexOf(value) === keysArray.length - 1) {
+                    csvValue += `${value}`
+                } else csvValue += `${value}, `
+            }
+        })
+
+        csvValue += "\n"
     })
 
     csvOutput.innerHTML = csvValue;
