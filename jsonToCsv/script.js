@@ -1,8 +1,7 @@
-// Thanks, Marcos, for the help with this one!
-
 const csvOutput = document.querySelector("#csvOutput");
+const jsonOutput = document.querySelector("#jsonOutput");
 
-function tryConvert(inputText, type) {
+function tryJsonConvert(inputText) {
   const jsonContentString = inputText.trim();
   if (!checkJSON(jsonContentString)) {
     alert("Error");
@@ -10,6 +9,13 @@ function tryConvert(inputText, type) {
   }
   const convertedCsv = convertJsonToCsv(jsonContentString);
   csvOutput.innerHTML = convertedCsv;
+}
+
+function tryCsvConvert(inputText) {
+  if (!checkCSV(inputText)) {
+    alert("Error");
+    return;
+  }
 }
 
 function checkJSON(jsonContentString) {
@@ -20,6 +26,37 @@ function checkJSON(jsonContentString) {
     return false;
   }
 }
+
+function checkCSV(csvContentString) {
+  let emptyItem = false;
+   
+  if (csvContentString == "") return false;
+
+  csvContentString = csvContentString
+    .split('\n')
+    .map((row) => row.split(','));
+
+  let csvElements = []
+
+  csvContentString.forEach((arr) => {
+    csvElements = csvElements.concat(arr);
+  })
+
+  csvElements.forEach((element) => {
+    const item = String(element).trim();
+    
+    if(item.length == 0){
+      emptyItem = true;
+    }
+  });
+  console.log(csvElements)
+
+  if(emptyItem == true) return false;
+
+  return true;
+}
+
+// Thanks, Marcos, for the help with this one!
 
 function convertJsonToCsv(jsonContentString) {
   const parsedJSON = JSON.parse(jsonContentString);
@@ -40,4 +77,8 @@ function convertJsonToCsv(jsonContentString) {
   const csvContent = [csvHeaders.join(", "), ...csvRows].join("\n");
 
   return csvContent;
+}
+
+function convertCsvToJson(csvContentString) {
+
 }

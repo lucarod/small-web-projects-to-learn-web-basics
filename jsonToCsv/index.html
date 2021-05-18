@@ -25,11 +25,11 @@
                 <div class="text-field" id="input-field">
                     <label for="jsonInput">Paste your JSON text here:</label>
                     <textarea name="jsonInput" id="jsonInput" cols="50" rows="15" wrap="off"></textarea>
-                    <button onclick="tryConvert(jsonInput.value, 'json')">Convert</button>
+                    <button onclick="tryJsonConvert(jsonInput.value)">Convert</button>
                 </div>
                 <div class="text-field" id="result-field">
                     <label for="jsonInput">Result:</label>
-                    <textarea name="csvOutput" id="csvOutput" cols="50" rows="15" wrap="off"></textarea>
+                    <textarea readonly name="csvOutput" id="csvOutput" cols="50" rows="15" wrap="off"></textarea>
                     <div class="result-buttons">
                         <button>Copy</button>
                         <button>Download</button>
@@ -43,16 +43,17 @@
 
             <header>
                 <h2>CSV To JSON</h2>
+                <p>Note: The last item of the row must have no comma</p>
             </header>
             <div class="fields">
                 <div class="text-field" id="input-field">
-                    <label for="jsonInput">Paste your JSON text here:</label>
+                    <label for="jsonInput">Paste your CSV text here:</label>
                     <textarea name="jsonInput" id="csvInput" cols="50" rows="15" wrap="off"></textarea>
-                    <button onclick="tryConvert(csvInput.value, 'csv')">Convert</button>
+                    <button onclick="tryCsvConvert(csvInput.value)">Convert</button>
                 </div>
                 <div class="text-field" id="result-field">
                     <label for="jsonInput">Result:</label>
-                    <textarea name="jsonOutput" id="jsonOutput" cols="50" rows="15" wrap="off"></textarea>
+                    <textarea readonly name="jsonOutput" id="jsonOutput" cols="50" rows="15" wrap="off"></textarea>
                     <div class="result-buttons">
                         <button>Copy</button>
                         <button>Download</button>
