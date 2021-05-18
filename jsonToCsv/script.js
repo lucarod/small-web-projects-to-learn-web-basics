@@ -2,7 +2,7 @@
 
 const csvOutput = document.querySelector("#csvOutput");
 
-function tryConvert(inputText) {
+function tryConvert(inputText, type) {
   const jsonContentString = inputText.trim();
   if (!checkJSON(jsonContentString)) {
     alert("Error");

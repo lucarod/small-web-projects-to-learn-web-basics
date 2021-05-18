@@ -11,23 +11,58 @@
 </head>
 <body>
     <header>
-        <h1>JSON To CSV Converter</p>
+        <h1>JSON/CSV Converter</h1>
     </header>
+
     <main>
-        <div class="text-field" id="input-field">
-            <label for="jsonInput">Paste your JSON text here:</label>
-            <textarea name="jsonInput" id="jsonInput" cols="50" rows="15" wrap="off"></textarea>
-            <button onclick="tryConvert(jsonInput.value)">Convert</button>
-        </div>
-        <div class="text-field" id="result-field">
-            <label for="jsonInput">Result:</label>
-            <textarea name="csvOutput" id="csvOutput" cols="50" rows="15" wrap="off"></textarea>
-            <div class="result-buttons">
-                <button>Copy</button>
-                <button>Download</button>
+        <section id="json-to-csv">
+            <header>
+                <h2>JSON To CSV</h2>
+                <p>Note: The properties of the following objects must be in the same order that the properties in the first object</p>
+                <p>Note: If an object has a property, it needs a value</p>
+            </header>
+            <div class="fields">
+                <div class="text-field" id="input-field">
+                    <label for="jsonInput">Paste your JSON text here:</label>
+                    <textarea name="jsonInput" id="jsonInput" cols="50" rows="15" wrap="off"></textarea>
+                    <button onclick="tryConvert(jsonInput.value, 'json')">Convert</button>
+                </div>
+                <div class="text-field" id="result-field">
+                    <label for="jsonInput">Result:</label>
+                    <textarea name="csvOutput" id="csvOutput" cols="50" rows="15" wrap="off"></textarea>
+                    <div class="result-buttons">
+                        <button>Copy</button>
+                        <button>Download</button>
+                    </div>
+                </div>
             </div>
-        </div>
+
+        </section>
+
+        <section id="csv-to-json">
+
+            <header>
+                <h2>CSV To JSON</h2>
+            </header>
+            <div class="fields">
+                <div class="text-field" id="input-field">
+                    <label for="jsonInput">Paste your JSON text here:</label>
+                    <textarea name="jsonInput" id="csvInput" cols="50" rows="15" wrap="off"></textarea>
+                    <button onclick="tryConvert(csvInput.value, 'csv')">Convert</button>
+                </div>
+                <div class="text-field" id="result-field">
+                    <label for="jsonInput">Result:</label>
+                    <textarea name="jsonOutput" id="jsonOutput" cols="50" rows="15" wrap="off"></textarea>
+                    <div class="result-buttons">
+                        <button>Copy</button>
+                        <button>Download</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
     </main>
+
     <footer>
         <p>Made by Luca Rodrigues</p>
         <a href="https://github.com/lucarod">GitHub</a>
