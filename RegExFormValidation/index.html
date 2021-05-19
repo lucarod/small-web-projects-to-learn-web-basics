@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation with RegEx</title>
+</head>
+<body>
+    <header>Form Validation with RegEx</header>
+    <main>
+        <form action="#">
+            <fieldset>
+                <p class="error-message">** Email not valid! **</p>
+                <label for="">Email</label>
+                <input type="text">
+            </fieldset>
+            <fieldset>
+                <p class="error-message">** Username not valid! **</p>
+                <label for="">Username</label>
+                <input type="text">
+                <p>* Only letters, no spaces</p>
+            </fieldset>
+            <fieldset>
+                <p class="error-message">** Password not valid! **</p>
+                <label for="">Password</label>
+                <input type="password">
+                <p>* The password must contain five &#40;5&#41; capital letters, six &#40;6&#41; symbols and two hyphens &#40;-&#41; in any order</p>
+            </fieldset>
+            <button>Salvar</button>
+        </form>
+    </main>
+    <footer>
+        <p>Made by Luca Rodrigues</p>
+        <a href="">GitHub</a>
+    </footer>
+
+</body>
+</html>
