@@ -31,8 +31,7 @@
                     <label for="jsonInput">Result:</label>
                     <textarea readonly name="csvOutput" id="csvOutput" cols="50" rows="15" wrap="off"></textarea>
                     <div class="result-buttons">
-                        <button>Copy</button>
-                        <button>Download</button>
+                        <button onclick="copyTextToClipboard(csvOutput.value)">Copy</button>
                     </div>
                 </div>
             </div>
@@ -48,15 +47,14 @@
             <div class="fields">
                 <div class="text-field" id="input-field">
                     <label for="jsonInput">Paste your CSV text here:</label>
-                    <textarea name="jsonInput" id="csvInput" cols="50" rows="15" wrap="off"></textarea>
+                    <textarea name="csvInput" id="csvInput" cols="50" rows="15" wrap="off"></textarea>
                     <button onclick="tryCsvConvert(csvInput.value)">Convert</button>
                 </div>
                 <div class="text-field" id="result-field">
                     <label for="jsonInput">Result:</label>
                     <textarea readonly name="jsonOutput" id="jsonOutput" cols="50" rows="15" wrap="off"></textarea>
                     <div class="result-buttons">
-                        <button>Copy</button>
-                        <button>Download</button>
+                        <button onclick="copyTextToClipboard(jsonOutput.value)">Copy</button>
                     </div>
                 </div>
             </div>
