@@ -14,23 +14,23 @@
         <h1>Form Validation with RegEx</h1>
     </header>
     <main>
-        <form action="#">
+        <form action="" onsubmit="checkValidation(event)">
             <div class="fieldsets">
                 <fieldset>
-                    <p class="error-message">** Email not valid! **</p>
+                    <p class="check">** Email not valid! **</p>
                     <label class="sr-only" for="email">Email</label>
                     <br>
                     <input type="text" id="email" name="email" placeholder="Email">
                 </fieldset>
                 <fieldset>
-                    <p class="error-message">** Username not valid! **</p>
+                    <p class="check">** Username not valid! **</p>
                     <label class="sr-only" for="username">Username</label>
                     <br>
                     <input type="text" id="username" name="username" placeholder="Username">
                     <p class="note">* Only letters, no spaces</p>
                 </fieldset>
                 <fieldset>
-                    <p class="error-message">** Password not valid! **</p>
+                    <p class="check">** Password not valid! **</p>
                     <label class="sr-only" for="password">Password</label>
                     <br>
                     <input type="password" id="password" name="password" placeholder="Password">
@@ -40,10 +40,12 @@
             <button>Save</button>
         </form>
     </main>
+
     <footer>
         <p>Made by Luca Rodrigues</p>
         <a href="">GitHub</a>
     </footer>
-
+    
+    <script src="./script.js"></script>
 </body>
 </html>
