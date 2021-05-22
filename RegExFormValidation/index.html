@@ -14,7 +14,7 @@
         <h1>Form Validation with RegEx</h1>
     </header>
     <main>
-        <form action="" onsubmit="checkValidation(event)">
+        <form action="" onsubmit="Form.checkValidation(event)">
             <div class="fieldsets">
                 <fieldset>
                     <p class="check">** Email not valid! **</p>
@@ -34,13 +34,20 @@
                     <label class="sr-only" for="password">Password</label>
                     <br>
                     <input type="password" id="password" name="password" placeholder="Password">
-                    <p class="note">* The password must contain five &#40;5&#41; capital letters, six &#40;6&#41; symbols and two hyphens &#40;-&#41; in any order</p>
+                    <p class="note">* The password must contain at least one capital letter and one symbol, with a min length of 6 and a max length of 12 characters</p>
                 </fieldset>
             </div>
             <button>Save</button>
         </form>
     </main>
-
+    
+    <div class="modal-overlay">
+        <div class="modal">
+            <p id="modal-text">Form succesfully verified!</p>
+            <button id="modal-button" onclick="Modal.toggle(); Form.clearFields()">Close</button>
+        </div>
+    </div>
+    
     <footer>
         <p>Made by Luca Rodrigues</p>
         <a href="">GitHub</a>
