@@ -1,0 +1,188 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #f0f0f0;
+}
+
+body header {
+  width: 100%;
+  height: 100px;
+  background-color: #7bdbdb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+body header h1 {
+  font-size: 28px;
+}
+
+body main {
+  margin-top: 25px;
+}
+
+body main #meal-content {
+  margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body main #meal-content #meal-description {
+  width: 600px;
+  margin-right: 100px;
+}
+
+body main #meal-content #meal-description #meal-name {
+  text-align: center;
+  font-size: 24px;
+}
+
+body main #meal-content #meal-description #meal-ingredients {
+  margin-top: 50px;
+}
+
+body main #meal-content #meal-description #meal-ingredients h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+body main #meal-content #meal-description #meal-ingredients #ingredient-list {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+body main #meal-content #meal-description #meal-ingredients #ingredient-list li {
+  list-style-type: circle;
+  list-style-position: inside;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+body main #meal-content #meal-description #meal-instructions {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+body main #meal-content #meal-media #meal-image {
+  width: 420px;
+}
+
+body main #meal-content #meal-media #meal-video {
+  margin-top: 25px;
+}
+
+body main #generate-meal-section {
+  text-align: center;
+}
+
+body footer {
+  margin-top: 5px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+body footer p {
+  margin: 5px 0;
+  opacity: 0.9;
+}
+
+body footer a {
+  text-decoration: none;
+}
+
+.generate-meal-button {
+  border: none;
+  background-color: #C81D1D;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 7px;
+  font-size: 20px;
+  font-weight: normal;
+  margin: 5px;
+  -webkit-transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease;
+}
+
+.generate-meal-button:hover {
+  background-color: #df2323;
+  cursor: pointer;
+}
+
+.generate-meal-button:active {
+  background-color: #fa3535;
+}
